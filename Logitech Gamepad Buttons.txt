@@ -1,0 +1,14 @@
+----Buttons-----
+RB:6
+LB:5
+A :1
+B :2
+X :3
+Y :4
+
+-----Axes-------
+LH :1
+LV :2
+RT/LT :3
+RH :4
+RV :5
