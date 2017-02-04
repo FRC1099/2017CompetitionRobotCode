@@ -3,10 +3,10 @@ package org.usfirst.frc.team1099.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-
-import org.usfirst.frc.team1099.robot.commands.ExampleCommand;
 import org.usfirst.frc.team1099.robot.commands.Drive.ShiftHigh;
 import org.usfirst.frc.team1099.robot.commands.Drive.ShiftLow;
+import org.usfirst.frc.team1099.robot.commands.Intake.IntakeIn;
+import org.usfirst.frc.team1099.robot.commands.Intake.IntakeOut;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -50,5 +50,11 @@ public class OI {
 		
 		JoystickButton shiftLow = new JoystickButton(lstick, RobotMap.SHIFTLOWBUTTON);
 		shiftLow.whenPressed(new ShiftLow());
+		
+		JoystickButton intakeIn = new JoystickButton(gamepad, RobotMap.INTAKEIN);
+		intakeIn.whileHeld(new IntakeIn());
+		
+		JoystickButton intakeOut = new JoystickButton(gamepad, RobotMap.INTAKEOUT);
+		intakeOut.whileHeld(new IntakeOut());
 	}
 }

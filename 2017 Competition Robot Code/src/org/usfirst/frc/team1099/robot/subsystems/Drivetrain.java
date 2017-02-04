@@ -6,10 +6,12 @@ import org.usfirst.frc.team1099.robot.RobotMap;
 import org.usfirst.frc.team1099.robot.commands.Drive.TeleDrive;
 
 import com.ctre.CANTalon;
+import com.ctre.CANTalon.TalonControlMode;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -18,16 +20,29 @@ public class Drivetrain extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-	CANTalon drive1 = new CANTalon(RobotMap.CANDRIVE1);
-	CANTalon drive2 = new CANTalon(RobotMap.CANDRIVE2);
-	CANTalon drive3 = new CANTalon(RobotMap.CANDRIVE3);
-	CANTalon drive4 = new CANTalon(RobotMap.CANDRIVE4);
-	CANTalon drive5 = new CANTalon(RobotMap.CANDRIVE5);
-	CANTalon drive6 = new CANTalon(RobotMap.CANDRIVE6);
+	CANTalon ldrive = new CANTalon(RobotMap.LCANDRIVE);
+	CANTalon lslave1 = new CANTalon(RobotMap.LCANSLAVE1);
+	CANTalon lslave2 = new CANTalon(RobotMap.LCANSLAVE2);
+	
+	CANTalon rdrive = new CANTalon(RobotMap.RCANDRIVE);
+	CANTalon rslave1 = new CANTalon(RobotMap.RCANSLAVE1);
+	CANTalon rslave2 = new CANTalon(RobotMap.RCANSLAVE2);
 	
 	DoubleSolenoid shift = new DoubleSolenoid(RobotMap.SHIFTHIGH, RobotMap.SHIFTLOW);
 	
 	public void drive() {
+		lslave1.changeControlMode(TalonControlMode.Follower);
+		lslave1.set(0);
+		
+		lslave2.changeControlMode(TalonControlMode.Follower);
+		lslave2.set(0);
+		
+		rslave1.changeControlMode(TalonControlMode.Follower);
+		rslave1.set(3);
+		
+		rslave2.changeControlMode(TalonControlMode.Follower);
+		rslave2.set(3);
+		
 		double left = OI.lstick.getRawAxis(1);
 		double right = OI.rstick.getRawAxis(1);
 		
@@ -36,12 +51,8 @@ public class Drivetrain extends Subsystem {
 			right = right * 0.5;
 		}
 		
-		drive1.set(left);
-		drive2.set(left);
-		drive3.set(left);
-		drive4.set(right);
-		drive5.set(right);
-		drive6.set(right);
+		ldrive.set(left);
+		rdrive.set(right);
 	}
 	
 	public void shiftHigh() {

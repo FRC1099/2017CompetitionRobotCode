@@ -9,8 +9,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team1099.robot.commands.ExampleCommand;
+import org.usfirst.frc.team1099.robot.subsystems.Climber;
 import org.usfirst.frc.team1099.robot.subsystems.Drivetrain;
-import org.usfirst.frc.team1099.robot.subsystems.ExampleSubsystem;
+import org.usfirst.frc.team1099.robot.subsystems.GearMechanism;
+import org.usfirst.frc.team1099.robot.subsystems.Shooter;
+import org.usfirst.frc.team1099.robot.subsystems.BallIntake;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -22,7 +25,10 @@ import org.usfirst.frc.team1099.robot.subsystems.ExampleSubsystem;
 public class Robot extends IterativeRobot {
 
 	public static final Drivetrain drivetrain = new Drivetrain();
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
+	public static final BallIntake intake = new BallIntake();
+	public static final Climber climber = new Climber();
+	public static final GearMechanism gearmechanism = new GearMechanism();
+	public static final Shooter shooter = new Shooter();
 	public static OI oi;
 
 	Command autonomousCommand;

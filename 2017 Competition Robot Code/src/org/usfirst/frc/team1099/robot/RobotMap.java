@@ -17,12 +17,17 @@ public class RobotMap {
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
 	//Drivetrain Motors:
-	public static int CANDRIVE1 = 0;
-	public static int CANDRIVE2 = 1;
-	public static int CANDRIVE3 = 2;
-	public static int CANDRIVE4 = 3;
-	public static int CANDRIVE5 = 4;
-	public static int CANDRIVE6 = 5;
+	public static int LCANDRIVE = 0;
+	public static int LCANSLAVE1 = 1;
+	public static int LCANSLAVE2 = 2;
+	public static int RCANDRIVE = 3;
+	public static int RCANSLAVE1 = 4;
+	public static int RCANSLAVE2 = 5;
+	
+	//Component Motors:
+	public static int INTAKEMOTOR = 6;
+	public static int CLIMBERMOTOR = 7;
+	public static int SHOOTERMOTOR = 8;
 	
 	//Pneumatics:
 	public static int SHIFTHIGH = 0;
@@ -36,5 +41,12 @@ public class RobotMap {
 	//Joystick Buttons:
 	public static int SHIFTHIGHBUTTON = 3;
 	public static int SHIFTLOWBUTTON = 2;
+	
+	//Gamepad Buttons:
+	public static int INTAKEIN = 5;
+	public static int INTAKEOUT = 6;
+	
+	//Gamepad Axes:
+	public static int CLIMBERAXIS = 5;
 	
 }
