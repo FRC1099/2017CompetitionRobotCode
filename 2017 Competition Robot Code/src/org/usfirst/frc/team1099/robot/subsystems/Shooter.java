@@ -6,6 +6,9 @@ import org.usfirst.frc.team1099.robot.commands.Shooter.StartShooterIdle;
 
 import com.ctre.CANTalon;
 import com.ctre.CANTalon.FeedbackDevice;
+import com.ctre.CANTalon.TalonControlMode;
+
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -17,23 +20,32 @@ public class Shooter extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-	CANTalon shooterMotor = new CANTalon(RobotMap.SHOOTERMOTOR);	
+	CANTalon shooter = new CANTalon(3);	
+	
+	Joystick stick = new Joystick(0);	
 	
 	double lastTime = Timer.getFPGATimestamp();
+	
 	double totalAmpHours;
 	
 	public void initShooter() {
-        setMotor(shooterMotor);
+        /* first choose the sensor */
+        setMotor(shooter);
+        
+    	shooter.reverseOutput(false);
+    	shooter.reverseSensor(false); 
+        shooter.setInverted(false);
+        shooter.changeControlMode(TalonControlMode.Speed);
 	}
     /**
      * This function is called periodically during operator control
      */
     public void startShooter(double speedSP) {
-    	shooterMotor.setSetpoint(speedSP);
+    	shooter.set(speedSP);
     	
     	
-    	double voltage = shooterMotor.getOutputVoltage();
-    	double current = shooterMotor.getOutputCurrent();
+    	double voltage = shooter.getOutputVoltage();
+    	double current = shooter.getOutputCurrent();
     	
     	double power = voltage * current;
     	
@@ -47,30 +59,33 @@ public class Shooter extends Subsystem {
     	
     	totalAmpHours = totalAmpHours + currentAmpHours;
     	
-    	SmartDashboard.putNumber("Voltage", voltage);
-    	SmartDashboard.putNumber("Current", current);
+//    	SmartDashboard.putNumber("Voltage", voltage);
+    	SmartDashboard.putNumber("Voltage", shooter.getOutputVoltage());
+    	SmartDashboard.putNumber("Current", shooter.getOutputCurrent());
     	SmartDashboard.putNumber("Power", power);
     	SmartDashboard.putNumber("Total AMP Hours", totalAmpHours);
-    	SmartDashboard.putNumber("Speed", shooterMotor.getSpeed());
-    	SmartDashboard.putNumber("Set Point Speed", shooterMotor.getSetpoint());
+    	SmartDashboard.putNumber("Speed", -shooter.getSpeed());
+    	//SmartDashboard.putNumber("Set Point Speed", shooter.getSetpoint());
+    	SmartDashboard.putNumber("Set Point Speed", speedSP);
     	SmartDashboard.putNumber("Sample Time", sampleTime);
+    	SmartDashboard.putNumber("Closed Loop Error", shooter.getClosedLoopError());
     }
     
-    public void setMotor(CANTalon m) {
+    private void setMotor(CANTalon m) {
     	
     	m.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
     	
+    	m.configNominalOutputVoltage(+0.0f, -0.0f);
     	m.configPeakOutputVoltage(+12.0f, -12.0f);
         
         /* set closed loop gains in slot0 */
         m.setProfile(0);
 
-       m.setF(0.2);
-       m.setP(0.2);
-       m.setI(0.001);
+       m.setF(0.2); // 0.2
+       m.setP(0.2); // 0.2
+       m.setI(0.001); // 0.001
        m.setD(0);
     }
-
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());

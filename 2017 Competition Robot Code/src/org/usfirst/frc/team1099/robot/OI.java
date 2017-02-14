@@ -57,8 +57,5 @@ public class OI {
 		
 		JoystickButton intakeOut = new JoystickButton(gamepad, RobotMap.INTAKEOUT);
 		intakeOut.whileHeld(new IntakeOut());
-		
-		JoystickButton shooterFast = new JoystickButton(gamepad, RobotMap.SHOOTERFAST);
-		shooterFast.whileHeld(new StartShooterFast());
 	}
 }
