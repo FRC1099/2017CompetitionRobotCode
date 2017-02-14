@@ -7,12 +7,18 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ShiftHigh extends Command {
+public class AutoDrive extends Command {
+	
+	private double leftSpeed;
+	private double rightSpeed;
 
-    public ShiftHigh() {
+    public AutoDrive(double leftSpeed, double rightSpeed) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.drivetrain);
+    	
+    	this.leftSpeed = leftSpeed;
+    	this.rightSpeed = rightSpeed;
     }
 
     // Called just before this Command runs the first time
@@ -21,12 +27,13 @@ public class ShiftHigh extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drivetrain.shiftHigh();
+    	Robot.drivetrain.autoDrive(leftSpeed, rightSpeed);
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     // Called once after isFinished returns true

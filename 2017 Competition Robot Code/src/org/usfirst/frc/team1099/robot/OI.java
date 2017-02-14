@@ -7,6 +7,7 @@ import org.usfirst.frc.team1099.robot.commands.Drive.ShiftHigh;
 import org.usfirst.frc.team1099.robot.commands.Drive.ShiftLow;
 import org.usfirst.frc.team1099.robot.commands.Intake.IntakeIn;
 import org.usfirst.frc.team1099.robot.commands.Intake.IntakeOut;
+import org.usfirst.frc.team1099.robot.commands.Shooter.StartShooterFast;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -45,9 +46,9 @@ public class OI {
 	public static Joystick gamepad = new Joystick(RobotMap.GAMEPAD);
 	
 	public OI() {
-		JoystickButton shiftHigh = new JoystickButton(lstick, RobotMap.SHIFTHIGHBUTTON);
+		JoystickButton shiftHigh = new JoystickButton(rstick, RobotMap.SHIFTHIGHBUTTON);
 		shiftHigh.whenPressed(new ShiftHigh());
-		
+			
 		JoystickButton shiftLow = new JoystickButton(lstick, RobotMap.SHIFTLOWBUTTON);
 		shiftLow.whenPressed(new ShiftLow());
 		
@@ -56,5 +57,8 @@ public class OI {
 		
 		JoystickButton intakeOut = new JoystickButton(gamepad, RobotMap.INTAKEOUT);
 		intakeOut.whileHeld(new IntakeOut());
+		
+		JoystickButton shooterFast = new JoystickButton(gamepad, RobotMap.SHOOTERFAST);
+		shooterFast.whileHeld(new StartShooterFast());
 	}
 }

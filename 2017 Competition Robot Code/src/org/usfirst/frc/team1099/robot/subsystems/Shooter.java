@@ -1,7 +1,8 @@
 package org.usfirst.frc.team1099.robot.subsystems;
 
 import org.usfirst.frc.team1099.robot.RobotMap;
-import org.usfirst.frc.team1099.robot.commands.Shooter.StartShooter;
+import org.usfirst.frc.team1099.robot.commands.Shooter.StartShooterFast;
+import org.usfirst.frc.team1099.robot.commands.Shooter.StartShooterIdle;
 
 import com.ctre.CANTalon;
 import com.ctre.CANTalon.FeedbackDevice;
@@ -16,20 +17,19 @@ public class Shooter extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-	public CANTalon shooterMotor = new CANTalon(RobotMap.SHOOTERMOTOR);	
+	CANTalon shooterMotor = new CANTalon(RobotMap.SHOOTERMOTOR);	
 	
 	double lastTime = Timer.getFPGATimestamp();
 	double totalAmpHours;
-	double speedSP = -1700; //RPM
 	
-	public void robotInit() {
+	public void initShooter() {
         setMotor(shooterMotor);
 	}
     /**
      * This function is called periodically during operator control
      */
-    public void startShooter() {
-		shooterMotor.setSetpoint(speedSP);
+    public void startShooter(double speedSP) {
+    	shooterMotor.setSetpoint(speedSP);
     	
     	
     	double voltage = shooterMotor.getOutputVoltage();
@@ -74,7 +74,7 @@ public class Shooter extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-    	setDefaultCommand(new StartShooter());
+    	setDefaultCommand(new StartShooterIdle());
     }
 }
 

@@ -16,11 +16,13 @@ public class BallIntake extends Subsystem {
 	Talon intakeMotor = new Talon(RobotMap.INTAKEMOTOR);
 	
 	public void intakeIn() {
-		intakeMotor.set(1.0);
+		//intakeMotor.set(0.75);
+		intakeMotor.set(0.5);
 	}
 	
 	public void intakeOut() {
-		intakeMotor.set(-1.0);
+		//intakeMotor.set(-0.75);
+		intakeMotor.set(-0.5);
 	}
 	
 	public void intakeStop() {

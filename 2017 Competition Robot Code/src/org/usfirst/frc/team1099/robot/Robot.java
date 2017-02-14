@@ -9,9 +9,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team1099.robot.commands.ExampleCommand;
+import org.usfirst.frc.team1099.robot.commands.Shooter.StartShooterIdle;
 import org.usfirst.frc.team1099.robot.subsystems.Climber;
 import org.usfirst.frc.team1099.robot.subsystems.Drivetrain;
-import org.usfirst.frc.team1099.robot.subsystems.GearMechanism;
 import org.usfirst.frc.team1099.robot.subsystems.Shooter;
 import org.usfirst.frc.team1099.robot.subsystems.BallIntake;
 
@@ -27,7 +27,6 @@ public class Robot extends IterativeRobot {
 	public static final Drivetrain drivetrain = new Drivetrain();
 	public static final BallIntake intake = new BallIntake();
 	public static final Climber climber = new Climber();
-	public static final GearMechanism gearmechanism = new GearMechanism();
 	public static final Shooter shooter = new Shooter();
 	public static OI oi;
 
@@ -104,6 +103,8 @@ public class Robot extends IterativeRobot {
 		// this line or comment it out.
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
+		
+		new StartShooterIdle();
 	}
 
 	/**

@@ -1,4 +1,4 @@
-package org.usfirst.frc.team1099.robot.commands.Drive;
+package org.usfirst.frc.team1099.robot.commands.Shooter;
 
 import org.usfirst.frc.team1099.robot.Robot;
 
@@ -7,26 +7,27 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ShiftHigh extends Command {
+public class StartShooterIdle extends Command {
 
-    public ShiftHigh() {
+    public StartShooterIdle() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.drivetrain);
+    	requires(Robot.shooter);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.shooter.initShooter();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drivetrain.shiftHigh();
+    	Robot.shooter.startShooter(-100);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     // Called once after isFinished returns true
