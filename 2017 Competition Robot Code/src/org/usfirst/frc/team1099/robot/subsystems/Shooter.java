@@ -20,7 +20,7 @@ public class Shooter extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-	CANTalon shooter = new CANTalon(3);	
+CANTalon shooter = new CANTalon(3);	
 	
 	Joystick stick = new Joystick(0);	
 	
@@ -42,7 +42,6 @@ public class Shooter extends Subsystem {
      */
     public void startShooter(double speedSP) {
     	shooter.set(speedSP);
-    	
     	
     	double voltage = shooter.getOutputVoltage();
     	double current = shooter.getOutputCurrent();
@@ -81,10 +80,10 @@ public class Shooter extends Subsystem {
         /* set closed loop gains in slot0 */
         m.setProfile(0);
 
-       m.setF(0.2); // 0.2
-       m.setP(0.2); // 0.2
-       m.setI(0.001); // 0.001
-       m.setD(0);
+       m.setF(0.03); // 0.2
+       m.setP(0.01); // 0.2
+       m.setI(0.0001); // 0.001
+       m.setD(0.0);
     }
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
