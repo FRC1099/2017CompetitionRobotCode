@@ -8,7 +8,10 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team1099.robot.commands.ExampleCommand;
+import org.usfirst.frc.team1099.robot.commands.DoNothing;
+import org.usfirst.frc.team1099.robot.commands.DriveForward;
+import org.usfirst.frc.team1099.robot.commands.DriveForwardTurnLeft;
+import org.usfirst.frc.team1099.robot.commands.DriveForwardTurnRight;
 import org.usfirst.frc.team1099.robot.commands.Shooter.StartShooterFast;
 import org.usfirst.frc.team1099.robot.commands.Shooter.StartShooterIdle;
 import org.usfirst.frc.team1099.robot.subsystems.Climber;
@@ -41,8 +44,10 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		chooser.addDefault("Default Auto", new ExampleCommand());
-		// chooser.addObject("My Auto", new MyAutoCommand());
+		chooser.addDefault("Do Nothing", new DoNothing());
+		chooser.addObject("Drive Forward", new DriveForward());
+		chooser.addObject("Drive Forward, Turn Left", new DriveForwardTurnLeft());
+		chooser.addObject("Drive Forward, Turn Left", new DriveForwardTurnRight());
 		SmartDashboard.putData("Auto mode", chooser);
 	}
 
