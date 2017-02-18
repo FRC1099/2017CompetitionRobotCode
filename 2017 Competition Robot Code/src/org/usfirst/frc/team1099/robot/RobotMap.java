@@ -23,11 +23,13 @@ public class RobotMap {
 	public static int LCANDRIVE = 3;
 	public static int LCANSLAVE1 = 4;
 	public static int LCANSLAVE2 = 5;
+	public static int SHOOTERCAN = 6;
 	
 	//Component Motors:
-	public static int INTAKEMOTOR = 6;
-	public static int CLIMBERMOTOR = 7;
-	public static int SHOOTERMOTOR = 8;
+	public static int INTAKEMOTOR = 0;
+	public static int SHOOTERINDEXMOTOR = 1;
+	public static int CLIMBERMOTOR = 2;
+	;
 	
 	//Pneumatics:
 	public static int SHIFTHIGH = 0;
@@ -47,6 +49,7 @@ public class RobotMap {
 	public static int INTAKEIN = 5;
 	public static int INTAKEOUT = 6;
 	public static int SHOOTERFAST = 1;
+	public static int INDEXERBUTTON = 2;
 
 	
 	//Gamepad Axes:

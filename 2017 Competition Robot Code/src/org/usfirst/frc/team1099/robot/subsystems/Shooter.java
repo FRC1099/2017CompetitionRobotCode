@@ -9,6 +9,7 @@ import com.ctre.CANTalon.FeedbackDevice;
 import com.ctre.CANTalon.TalonControlMode;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -20,7 +21,8 @@ public class Shooter extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-CANTalon shooter = new CANTalon(3);	
+	CANTalon shooter = new CANTalon(RobotMap.SHOOTERCAN);	
+	Talon shooterIndexerMotor = new Talon(RobotMap.SHOOTERINDEXMOTOR);
 	
 	Joystick stick = new Joystick(0);	
 	
@@ -84,6 +86,11 @@ CANTalon shooter = new CANTalon(3);
        m.setP(0.01); // 0.2
        m.setI(0.0001); // 0.001
        m.setD(0.0);
+    }
+    
+    public void startShooterIndexer() {
+    	shooterIndexerMotor.set(0.25);
+    	
     }
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

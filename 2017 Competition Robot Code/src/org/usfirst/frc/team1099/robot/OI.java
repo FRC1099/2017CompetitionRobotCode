@@ -8,6 +8,7 @@ import org.usfirst.frc.team1099.robot.commands.Drive.ShiftLow;
 import org.usfirst.frc.team1099.robot.commands.Intake.IntakeIn;
 import org.usfirst.frc.team1099.robot.commands.Intake.IntakeOut;
 import org.usfirst.frc.team1099.robot.commands.Shooter.StartShooterFast;
+import org.usfirst.frc.team1099.robot.commands.Shooter.StartShooterIndexer;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -57,5 +58,8 @@ public class OI {
 		
 		JoystickButton intakeOut = new JoystickButton(gamepad, RobotMap.INTAKEOUT);
 		intakeOut.whileHeld(new IntakeOut());
+		
+		JoystickButton indexerButton = new JoystickButton(gamepad, RobotMap.INDEXERBUTTON);
+		indexerButton.whileHeld(new StartShooterIndexer());
 	}
 }
