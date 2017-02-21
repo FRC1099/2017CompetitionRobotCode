@@ -48,8 +48,9 @@ public class RobotMap {
 	//Gamepad Buttons:
 	public static int INTAKEIN = 5;
 	public static int INTAKEOUT = 6;
-	public static int SHOOTERFAST = 1;
-	public static int INDEXERBUTTON = 2;
+	public static int SHOOTERFAST = 2;
+	public static int SHOOTERIDLE = 1;
+	public static int INDEXERBUTTON = 3;
 
 	
 	//Gamepad Axes:

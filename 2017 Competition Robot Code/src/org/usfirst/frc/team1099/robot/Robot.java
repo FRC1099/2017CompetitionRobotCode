@@ -1,6 +1,7 @@
 
 package org.usfirst.frc.team1099.robot;
 
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -49,6 +50,8 @@ public class Robot extends IterativeRobot {
 		chooser.addObject("Drive Forward, Turn Left", new DriveForwardTurnLeft());
 		chooser.addObject("Drive Forward, Turn Left", new DriveForwardTurnRight());
 		SmartDashboard.putData("Auto mode", chooser);
+		
+		CameraServer.getInstance().startAutomaticCapture();
 	}
 
 	/**
@@ -109,8 +112,6 @@ public class Robot extends IterativeRobot {
 		// this line or comment it out.
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
-		
-		new StartShooterFast();
 	}
 
 	/**

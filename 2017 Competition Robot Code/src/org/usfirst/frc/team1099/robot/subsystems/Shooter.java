@@ -3,6 +3,7 @@ package org.usfirst.frc.team1099.robot.subsystems;
 import org.usfirst.frc.team1099.robot.RobotMap;
 import org.usfirst.frc.team1099.robot.commands.Shooter.StartShooterFast;
 import org.usfirst.frc.team1099.robot.commands.Shooter.StartShooterIdle;
+import org.usfirst.frc.team1099.robot.commands.Shooter.StopShooterIndexer;
 
 import com.ctre.CANTalon;
 import com.ctre.CANTalon.FeedbackDevice;
@@ -29,6 +30,9 @@ public class Shooter extends Subsystem {
 	double lastTime = Timer.getFPGATimestamp();
 	
 	double totalAmpHours;
+	
+    //IDLE Speed is False, FAST Speed is True
+	public boolean shooterStatus = false;
 	
 	public void initShooter() {
         /* first choose the sensor */
@@ -70,6 +74,7 @@ public class Shooter extends Subsystem {
     	SmartDashboard.putNumber("Set Point Speed", speedSP);
     	SmartDashboard.putNumber("Sample Time", sampleTime);
     	SmartDashboard.putNumber("Closed Loop Error", shooter.getClosedLoopError());
+    	SmartDashboard.putBoolean("Shooter Status", shooterStatus);
     }
     
     private void setMotor(CANTalon m) {
@@ -89,13 +94,17 @@ public class Shooter extends Subsystem {
     }
     
     public void startShooterIndexer() {
-    	shooterIndexerMotor.set(0.25);
-    	
+    	shooterIndexerMotor.set(-1.0);
     }
+    
+    public void stopShooterIndexer() {
+    	shooterIndexerMotor.set(0);
+    }
+    
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-    	setDefaultCommand(new StartShooterIdle());
+    	setDefaultCommand(new StopShooterIndexer());
     }
 }
 

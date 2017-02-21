@@ -28,37 +28,34 @@ public class Drivetrain extends Subsystem {
 	double lastTime = Timer.getFPGATimestamp();
 	double totalAmpHours;
 	
-/*	CANTalon ldrive = new CANTalon(RobotMap.LCANDRIVE);
+	CANTalon ldrive = new CANTalon(RobotMap.LCANDRIVE);
 	CANTalon lslave1 = new CANTalon(RobotMap.LCANSLAVE1);
 	CANTalon lslave2 = new CANTalon(RobotMap.LCANSLAVE2);
 	
 	CANTalon rdrive = new CANTalon(RobotMap.RCANDRIVE);
 	CANTalon rslave1 = new CANTalon(RobotMap.RCANSLAVE1);
 	CANTalon rslave2 = new CANTalon(RobotMap.RCANSLAVE2);
-*/	
-	Talon ldrive = new Talon(RobotMap.LCANDRIVE);
-	Talon lslave1 = new Talon(RobotMap.LCANSLAVE1);
-	Talon lslave2 = new Talon(RobotMap.LCANSLAVE2);
-	
-	Talon rdrive = new Talon(RobotMap.RCANDRIVE);
-	Talon rslave1 = new Talon(RobotMap.RCANSLAVE1);
-	Talon rslave2 = new Talon(RobotMap.RCANSLAVE2);
 	
 	DoubleSolenoid shift = new DoubleSolenoid(RobotMap.SHIFTHIGH, RobotMap.SHIFTLOW);
-
-	public void drive() {
-/*		lslave1.changeControlMode(TalonControlMode.Follower);
-		lslave1.set(0);
+	
+	public Drivetrain() {
+		ldrive.changeControlMode(TalonControlMode.PercentVbus);
+		rdrive.changeControlMode(TalonControlMode.PercentVbus);
+		
+		lslave1.changeControlMode(TalonControlMode.Follower);
+		lslave1.set(RobotMap.LCANDRIVE);
 		
 		lslave2.changeControlMode(TalonControlMode.Follower);
-		lslave2.set(0);
+		lslave2.set(RobotMap.LCANDRIVE);
 		
 		rslave1.changeControlMode(TalonControlMode.Follower);
-		rslave1.set(3);
+		rslave1.set(RobotMap.RCANDRIVE);
 		
 		rslave2.changeControlMode(TalonControlMode.Follower);
-		rslave2.set(3);
-*/		
+		rslave2.set(RobotMap.RCANDRIVE);
+	}
+
+	public void drive() {
 		double pdp0Current = pdp.getCurrent(0);
 		double pdp1Current = pdp.getCurrent(1);
 		double pdp2Current = pdp.getCurrent(2);
@@ -86,12 +83,7 @@ public class Drivetrain extends Subsystem {
 		}
 		
 		ldrive.set(-left);
-		lslave1.set(-left);
-		lslave2.set(-left);
-		
 		rdrive.set(right);
-		rslave1.set(right);
-		rslave2.set(right);
 		
 		SmartDashboard.putNumber("PDP 0 Current", pdp0Current);
 		SmartDashboard.putNumber("PDP 1 Current", pdp1Current);
@@ -101,24 +93,26 @@ public class Drivetrain extends Subsystem {
 		SmartDashboard.putNumber("PDP 13 Current", pdp13Current);
 		SmartDashboard.putNumber("Total Current", totalCurrent);
 		SmartDashboard.putNumber("Drive Total AMP Hours", totalAmpHours);
+		SmartDashboard.putBoolean("Shift Status", shiftStatus);
 	}
 	
 	public void autoDrive(double leftSpeed, double rightSpeed) {
 		ldrive.set(-leftSpeed);
-		lslave1.set(-leftSpeed);
-		lslave2.set(-leftSpeed);
 		
 		rdrive.set(rightSpeed);
-		rslave1.set(rightSpeed);
-		rslave2.set(rightSpeed);
 	}
+	private static final boolean HI = true;
+	private static final boolean LO = false;
+	private boolean shiftStatus = LO;
 	
 	public void shiftHigh() {
 		shift.set(Value.kForward);
+		shiftStatus = HI;
 	}
 	
 	public void shiftLow() {
 		shift.set(Value.kReverse);
+		shiftStatus = LO;
 	}
 
     public void initDefaultCommand() {

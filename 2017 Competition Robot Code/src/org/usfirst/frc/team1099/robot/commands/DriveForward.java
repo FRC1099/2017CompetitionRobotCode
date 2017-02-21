@@ -26,6 +26,9 @@ public class DriveForward extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	addSequential(new AutoDrive(0.75, 0.75), 5.0);
+    	addSequential(new AutoDrive(0.75, 0), 0.5);
+    	addSequential(new AutoDrive(0.75, 0.75), 1.0);
+    	addSequential(new AutoDrive(0, 0.75), 0.5);
+    	addSequential(new AutoDrive(0.75, 0.75), 1.0);
     }
 }

@@ -8,6 +8,7 @@ import org.usfirst.frc.team1099.robot.commands.Drive.ShiftLow;
 import org.usfirst.frc.team1099.robot.commands.Intake.IntakeIn;
 import org.usfirst.frc.team1099.robot.commands.Intake.IntakeOut;
 import org.usfirst.frc.team1099.robot.commands.Shooter.StartShooterFast;
+import org.usfirst.frc.team1099.robot.commands.Shooter.StartShooterIdle;
 import org.usfirst.frc.team1099.robot.commands.Shooter.StartShooterIndexer;
 
 /**
@@ -61,5 +62,11 @@ public class OI {
 		
 		JoystickButton indexerButton = new JoystickButton(gamepad, RobotMap.INDEXERBUTTON);
 		indexerButton.whileHeld(new StartShooterIndexer());
+		
+		JoystickButton shooterFast = new JoystickButton(gamepad, RobotMap.SHOOTERFAST);
+		shooterFast.whenPressed(new StartShooterFast());
+		
+		JoystickButton shooterIdle = new JoystickButton(gamepad, RobotMap.SHOOTERIDLE);
+		shooterIdle.whenPressed(new StartShooterIdle());
 	}
 }

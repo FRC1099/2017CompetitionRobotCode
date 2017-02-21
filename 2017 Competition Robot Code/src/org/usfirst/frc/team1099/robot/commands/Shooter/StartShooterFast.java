@@ -22,6 +22,7 @@ public class StartShooterFast extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.shooter.shooterStatus = true;
     	Robot.shooter.startShooter(-1700);
     }
 
