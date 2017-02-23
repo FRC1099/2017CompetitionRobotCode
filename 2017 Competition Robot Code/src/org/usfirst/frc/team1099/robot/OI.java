@@ -69,4 +69,8 @@ public class OI {
 		JoystickButton shooterIdle = new JoystickButton(gamepad, RobotMap.SHOOTERIDLE);
 		shooterIdle.whenPressed(new StartShooterIdle());
 	}
+	
+	public double getRightAxis() {
+		return gamepad.getRawAxis(RobotMap.CLIMBERAXIS);
+	}
 }

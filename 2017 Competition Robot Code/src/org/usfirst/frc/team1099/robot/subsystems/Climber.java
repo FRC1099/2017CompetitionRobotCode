@@ -18,13 +18,13 @@ public class Climber extends Subsystem {
 	Talon climberMotor = new Talon(RobotMap.CLIMBERMOTOR);
 	
 	public void climbUp() {
-		if(OI.gamepad.getRawAxis(RobotMap.CLIMBERAXIS) > 0.1) {
+		if(Robot.oi.getRightAxis() > 0.1) {
 			climberMotor.set(1.0);
 		}
 	}
 	
 	public void climbDown() {
-		if(OI.gamepad.getRawAxis(RobotMap.CLIMBERAXIS) < 0.1) {
+		if(Robot.oi.getRightAxis() < -0.1) {
 			climberMotor.set(-1.0);
 		}
 	}
