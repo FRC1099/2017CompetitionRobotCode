@@ -16,7 +16,8 @@ public class RobotMap {
 	// number and the module. For example you with a rangefinder:
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
-	//Drivetrain Motors:
+	
+	//CAN Motors:
 	public static int RCANDRIVE = 0;
 	public static int RCANSLAVE1 = 1;
 	public static int RCANSLAVE2 = 2;
@@ -46,11 +47,13 @@ public class RobotMap {
 	public static int SLOWDRIVEBUTTON = 3;
 	
 	//Gamepad Buttons:
-	public static int INTAKEIN = 5;
-	public static int INTAKEOUT = 6;
-	public static int SHOOTERFAST = 2;
-	public static int SHOOTERIDLE = 1;
+	public static int INTAKEIN = 6;
+	public static int INTAKEOUT = 5;
+	public static int SHOOTERFAST = 1;
+	public static int SHOOTERIDLE = 2;
+	public static int SHOOTERSTOP = 4;
 	public static int INDEXERBUTTON = 3;
+	public static int CLIMBERDOWNVERIFY = 8;
 
 	
 	//Gamepad Axes:

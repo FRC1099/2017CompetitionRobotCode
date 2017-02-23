@@ -32,7 +32,7 @@ public class Shooter extends Subsystem {
 	double totalAmpHours;
 	
     //IDLE Speed is False, FAST Speed is True
-	public boolean shooterStatus = false;
+	public String shooterStatus;
 	
 	public void initShooter() {
         /* first choose the sensor */
@@ -74,7 +74,7 @@ public class Shooter extends Subsystem {
     	SmartDashboard.putNumber("Set Point Speed", speedSP);
     	SmartDashboard.putNumber("Sample Time", sampleTime);
     	SmartDashboard.putNumber("Closed Loop Error", shooter.getClosedLoopError());
-    	SmartDashboard.putBoolean("Shooter Status", shooterStatus);
+    	SmartDashboard.putString("Shooter Status", shooterStatus);
     }
     
     private void setMotor(CANTalon m) {

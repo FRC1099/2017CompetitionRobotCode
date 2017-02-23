@@ -24,7 +24,7 @@ public class Climber extends Subsystem {
 	}
 	
 	public void climbDown() {
-		if(Robot.oi.getRightAxis() < -0.1) {
+		if(Robot.oi.getRightAxis() < -0.1 && OI.gamepad.getRawButton(RobotMap.CLIMBERDOWNVERIFY)) {
 			climberMotor.set(-1.0);
 		}
 	}

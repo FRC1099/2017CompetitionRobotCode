@@ -10,6 +10,7 @@ import org.usfirst.frc.team1099.robot.commands.Intake.IntakeOut;
 import org.usfirst.frc.team1099.robot.commands.Shooter.StartShooterFast;
 import org.usfirst.frc.team1099.robot.commands.Shooter.StartShooterIdle;
 import org.usfirst.frc.team1099.robot.commands.Shooter.StartShooterIndexer;
+import org.usfirst.frc.team1099.robot.commands.Shooter.StopShooter;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -68,6 +69,9 @@ public class OI {
 		
 		JoystickButton shooterIdle = new JoystickButton(gamepad, RobotMap.SHOOTERIDLE);
 		shooterIdle.whenPressed(new StartShooterIdle());
+		
+		JoystickButton stopShooter = new JoystickButton(gamepad, RobotMap.SHOOTERSTOP);
+		stopShooter.whenPressed(new StopShooter());
 	}
 	
 	public double getRightAxis() {

@@ -22,7 +22,7 @@ public class StartShooterIdle extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.shooter.shooterStatus = false;
+    	Robot.shooter.shooterStatus = "IDLE";
     	Robot.shooter.startShooter(-400);
     }
 
