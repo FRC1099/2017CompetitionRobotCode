@@ -22,8 +22,10 @@ public class Shooter extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-	CANTalon shooter = new CANTalon(RobotMap.SHOOTERCAN);	
+	CANTalon shooter1 = new CANTalon(RobotMap.SHOOTERCAN1);	
+	CANTalon shooter2 = new CANTalon(RobotMap.SHOOTERCAN2);
 	Talon shooterIndexerMotor = new Talon(RobotMap.SHOOTERINDEXMOTOR);
+	CANTalon shooterAgitator = new CANTalon(RobotMap.SHOOTERAGITATORCAN);
 	
 	Joystick stick = new Joystick(0);	
 	
@@ -36,21 +38,26 @@ public class Shooter extends Subsystem {
 	
 	public void initShooter() {
         /* first choose the sensor */
-        setMotor(shooter);
+        setMotor(shooter1);
         
-    	shooter.reverseOutput(false);
-    	shooter.reverseSensor(false); 
-        shooter.setInverted(false);
-        shooter.changeControlMode(TalonControlMode.Speed);
+    	shooter1.reverseOutput(false);
+    	shooter1.reverseSensor(false); 
+        shooter1.setInverted(false);
+        shooter1.changeControlMode(TalonControlMode.Speed);
+        
+        shooter2.changeControlMode(TalonControlMode.Follower);
+        shooter2.set(RobotMap.SHOOTERCAN1);
+        
+        
 	}
     /**
      * This function is called periodically during operator control
      */
     public void startShooter(double speedSP) {
-    	shooter.set(speedSP);
+    	shooter1.set(speedSP);
     	
-    	double voltage = shooter.getOutputVoltage();
-    	double current = shooter.getOutputCurrent();
+    	double voltage = shooter1.getOutputVoltage();
+    	double current = shooter1.getOutputCurrent();
     	
     	double power = voltage * current;
     	
@@ -65,15 +72,15 @@ public class Shooter extends Subsystem {
     	totalAmpHours = totalAmpHours + currentAmpHours;
     	
 //    	SmartDashboard.putNumber("Voltage", voltage);
-    	SmartDashboard.putNumber("Voltage", shooter.getOutputVoltage());
-    	SmartDashboard.putNumber("Current", shooter.getOutputCurrent());
+    	SmartDashboard.putNumber("Voltage", shooter1.getOutputVoltage());
+    	SmartDashboard.putNumber("Current", shooter1.getOutputCurrent());
     	SmartDashboard.putNumber("Power", power);
     	SmartDashboard.putNumber("Total AMP Hours", totalAmpHours);
-    	SmartDashboard.putNumber("Speed", -shooter.getSpeed());
+    	SmartDashboard.putNumber("Speed", -shooter1.getSpeed());
     	//SmartDashboard.putNumber("Set Point Speed", shooter.getSetpoint());
     	SmartDashboard.putNumber("Set Point Speed", speedSP);
     	SmartDashboard.putNumber("Sample Time", sampleTime);
-    	SmartDashboard.putNumber("Closed Loop Error", shooter.getClosedLoopError());
+    	SmartDashboard.putNumber("Closed Loop Error", shooter1.getClosedLoopError());
     	SmartDashboard.putString("Shooter Status", shooterStatus);
     }
     
@@ -95,10 +102,12 @@ public class Shooter extends Subsystem {
     
     public void startShooterIndexer() {
     	shooterIndexerMotor.set(-1.0);
+    	shooterAgitator.set(-1.0);
     }
     
     public void stopShooterIndexer() {
     	shooterIndexerMotor.set(0);
+    	shooterAgitator.set(0);
     }
     
     public void initDefaultCommand() {

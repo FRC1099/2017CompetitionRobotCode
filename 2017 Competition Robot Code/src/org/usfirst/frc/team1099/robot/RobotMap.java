@@ -24,7 +24,9 @@ public class RobotMap {
 	public static int LCANDRIVE = 3;
 	public static int LCANSLAVE1 = 4;
 	public static int LCANSLAVE2 = 5;
-	public static int SHOOTERCAN = 6;
+	public static int SHOOTERCAN1 = 6;
+	public static int SHOOTERCAN2 = 7;
+	public static int SHOOTERAGITATORCAN = 8;
 	
 	//Component Motors:
 	public static int INTAKEMOTOR = 0;
