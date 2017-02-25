@@ -25,7 +25,7 @@ public class Shooter extends Subsystem {
 	CANTalon shooter1 = new CANTalon(RobotMap.SHOOTERCAN1);	
 	CANTalon shooter2 = new CANTalon(RobotMap.SHOOTERCAN2);
 	Talon shooterIndexerMotor = new Talon(RobotMap.SHOOTERINDEXMOTOR);
-	CANTalon shooterAgitator = new CANTalon(RobotMap.SHOOTERAGITATORCAN);
+	Talon shooterAgitator = new Talon(RobotMap.SHOOTERAGITATOR);
 	
 	Joystick stick = new Joystick(0);	
 	

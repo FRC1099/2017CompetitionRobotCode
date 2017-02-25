@@ -26,12 +26,12 @@ public class RobotMap {
 	public static int LCANSLAVE2 = 5;
 	public static int SHOOTERCAN1 = 6;
 	public static int SHOOTERCAN2 = 7;
-	public static int SHOOTERAGITATORCAN = 8;
 	
 	//Component Motors:
 	public static int INTAKEMOTOR = 0;
 	public static int SHOOTERINDEXMOTOR = 1;
 	public static int CLIMBERMOTOR = 2;
+	public static int SHOOTERAGITATOR = 3;
 	;
 	
 	//Pneumatics:
