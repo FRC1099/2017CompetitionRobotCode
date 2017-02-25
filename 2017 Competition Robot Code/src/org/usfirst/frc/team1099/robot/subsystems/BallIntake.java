@@ -19,10 +19,6 @@ public class BallIntake extends Subsystem {
 		intakeMotor.set(0.75);
 	}
 	
-	public void intakeOut() {
-		intakeMotor.set(-0.75);
-	}
-	
 	public void intakeStop() {
 		intakeMotor.set(0);
 	}

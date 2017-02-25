@@ -58,9 +58,6 @@ public class OI {
 		JoystickButton intakeIn = new JoystickButton(gamepad, RobotMap.INTAKEIN);
 		intakeIn.whileHeld(new IntakeIn());
 		
-		JoystickButton intakeOut = new JoystickButton(gamepad, RobotMap.INTAKEOUT);
-		intakeOut.whileHeld(new IntakeOut());
-		
 		JoystickButton indexerButton = new JoystickButton(gamepad, RobotMap.INDEXERBUTTON);
 		indexerButton.whileHeld(new StartShooterIndexer());
 		

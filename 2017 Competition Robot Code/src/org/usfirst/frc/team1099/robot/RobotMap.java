@@ -50,7 +50,6 @@ public class RobotMap {
 	
 	//Gamepad Buttons:
 	public static int INTAKEIN = 6;
-	public static int INTAKEOUT = 5;
 	public static int SHOOTERFAST = 1;
 	public static int SHOOTERIDLE = 2;
 	public static int SHOOTERSTOP = 4;
