@@ -6,7 +6,6 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.usfirst.frc.team1099.robot.commands.Drive.ShiftHigh;
 import org.usfirst.frc.team1099.robot.commands.Drive.ShiftLow;
 import org.usfirst.frc.team1099.robot.commands.Intake.IntakeIn;
-import org.usfirst.frc.team1099.robot.commands.Intake.IntakeOut;
 import org.usfirst.frc.team1099.robot.commands.Shooter.StartShooterFast;
 import org.usfirst.frc.team1099.robot.commands.Shooter.StartShooterIdle;
 import org.usfirst.frc.team1099.robot.commands.Shooter.StartShooterIndexer;
