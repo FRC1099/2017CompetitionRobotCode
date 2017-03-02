@@ -49,7 +49,7 @@ public class Robot extends IterativeRobot {
 		chooser.addDefault("Do Nothing", new DoNothing());
 		chooser.addObject("Drive Forward", new DriveForward());
 		chooser.addObject("Drive Forward, Turn Left", new DriveForwardTurnLeft());
-		chooser.addObject("Drive Forward, Turn Left", new DriveForwardTurnRight());
+		chooser.addObject("Drive Forward, Turn Right", new DriveForwardTurnRight());
 		SmartDashboard.putData("Auto mode", chooser);
 		
 		CameraServer.getInstance().startAutomaticCapture();

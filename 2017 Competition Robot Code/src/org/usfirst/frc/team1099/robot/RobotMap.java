@@ -21,9 +21,9 @@ public class RobotMap {
 	public static int RCANDRIVE = 0;
 	public static int RCANSLAVE1 = 1;
 	public static int RCANSLAVE2 = 2;
-	public static int LCANDRIVE = 3;
+	public static int LCANDRIVE = 5;
 	public static int LCANSLAVE1 = 4;
-	public static int LCANSLAVE2 = 5;
+	public static int LCANSLAVE2 = 3;
 	public static int SHOOTERCAN1 = 6;
 	public static int SHOOTERCAN2 = 7;
 	
