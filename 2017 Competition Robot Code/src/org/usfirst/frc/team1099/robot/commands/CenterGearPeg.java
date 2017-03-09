@@ -1,15 +1,16 @@
 package org.usfirst.frc.team1099.robot.commands;
 
 import org.usfirst.frc.team1099.robot.commands.Drive.AutoDrive;
+import org.usfirst.frc.team1099.robot.commands.Drive.AutoDriveStraight;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
  */
-public class DriveForward extends CommandGroup {
+public class CenterGearPeg extends CommandGroup {
 
-    public DriveForward() {
+    public CenterGearPeg() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -19,16 +20,13 @@ public class DriveForward extends CommandGroup {
         // use addParallel()
         // e.g. addParallel(new Command1());
         //      addSequential(new Command2());
-        // Command1 and Command2 will run in parallel.
+        // Command1 and Command2 will run in parallel. 
 
         // A command group will require all of the subsystems that each member
         // would require.
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	addSequential(new AutoDrive(0.75, 0), 0.5);
-    	addSequential(new AutoDrive(0.75, 0.75), 1.0);
-    	addSequential(new AutoDrive(0, 0.75), 0.5);
-    	addSequential(new AutoDrive(0.75, 0.75), 1.0);
+    	addSequential(new AutoDriveStraight(0.5), 4.0);
     }
 }

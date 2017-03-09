@@ -1,7 +1,7 @@
 
 package org.usfirst.frc.team1099.robot;
 
-import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.command.Command;
@@ -11,9 +11,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team1099.robot.commands.DoNothing;
-import org.usfirst.frc.team1099.robot.commands.DriveForward;
-import org.usfirst.frc.team1099.robot.commands.DriveForwardTurnLeft;
-import org.usfirst.frc.team1099.robot.commands.DriveForwardTurnRight;
+import org.usfirst.frc.team1099.robot.commands.Baseline;
+import org.usfirst.frc.team1099.robot.commands.CenterGearPeg;
 import org.usfirst.frc.team1099.robot.commands.Shooter.StartShooterFast;
 import org.usfirst.frc.team1099.robot.commands.Shooter.StartShooterIdle;
 import org.usfirst.frc.team1099.robot.subsystems.Climber;
@@ -38,7 +37,7 @@ public class Robot extends IterativeRobot {
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
-
+	
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -47,12 +46,13 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		oi = new OI();
 		chooser.addDefault("Do Nothing", new DoNothing());
-		chooser.addObject("Drive Forward", new DriveForward());
-		chooser.addObject("Drive Forward, Turn Left", new DriveForwardTurnLeft());
-		chooser.addObject("Drive Forward, Turn Right", new DriveForwardTurnRight());
+		chooser.addObject("Baseline Drive Forward", new Baseline());
+		chooser.addObject("Center Gear Peg Drive Backward", new CenterGearPeg());
 		SmartDashboard.putData("Auto mode", chooser);
 		
-		CameraServer.getInstance().startAutomaticCapture();
+		if(Robot.drivetrain.getShiftStatus() != false) {
+			Robot.drivetrain.shiftLow();
+		}
 	}
 
 	/**
@@ -123,6 +123,8 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		displayEncoderData();
+		
 	}
 
 	/**
@@ -132,4 +134,14 @@ public class Robot extends IterativeRobot {
 	public void testPeriodic() {
 		LiveWindow.run();
 	}
+	
+	public void displayEncoderData() {
+		SmartDashboard.putNumber("Left Encoder Position", Robot.drivetrain.getLeftEncoderPosition());
+		SmartDashboard.putNumber("Right Encoder Position", Robot.drivetrain.getRightEncoderPosition());
+		
+		// SmartDashboard.putNumber("Left Position", Robot.drivetrain.getLeftPosition());
+		// SmartDashboard.putNumber("Right Position", Robot.drivetrain.getRightPosition());
+		
+	}
+	
 }

@@ -98,9 +98,25 @@ public class Drivetrain extends Subsystem {
 	
 	public void autoDrive(double leftSpeed, double rightSpeed) {
 		ldrive.set(-leftSpeed);
-		
 		rdrive.set(rightSpeed);
 	}
+	
+	public int getLeftEncoderPosition() {
+		return ldrive.getEncPosition();
+	}
+	
+	public int getRightEncoderPosition() {
+		return rdrive.getEncPosition();
+	}
+	
+	public double getLeftPosition(){
+		return ldrive.getPosition();
+	}
+	
+	public double getRightPosition() {
+		return rdrive.getPosition();
+	}
+	
 	private static final boolean HI = true;
 	private static final boolean LO = false;
 	private boolean shiftStatus = LO;
@@ -113,6 +129,18 @@ public class Drivetrain extends Subsystem {
 	public void shiftLow() {
 		shift.set(Value.kReverse);
 		shiftStatus = LO;
+	}
+	
+	public boolean getShiftStatus() {
+		return shiftStatus;
+	}
+	
+	public void resetPosition() {
+		ldrive.setPosition(0);
+		rdrive.setPosition(0);
+		
+		ldrive.setEncPosition(0);
+		rdrive.setEncPosition(0);
 	}
 
     public void initDefaultCommand() {

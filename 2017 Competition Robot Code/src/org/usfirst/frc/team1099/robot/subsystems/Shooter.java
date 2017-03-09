@@ -3,6 +3,7 @@ package org.usfirst.frc.team1099.robot.subsystems;
 import org.usfirst.frc.team1099.robot.RobotMap;
 import org.usfirst.frc.team1099.robot.commands.Shooter.StartShooterFast;
 import org.usfirst.frc.team1099.robot.commands.Shooter.StartShooterIdle;
+import org.usfirst.frc.team1099.robot.commands.Shooter.StopShooter;
 import org.usfirst.frc.team1099.robot.commands.Shooter.StopShooterIndexer;
 
 import com.ctre.CANTalon;
@@ -48,8 +49,8 @@ public class Shooter extends Subsystem {
         shooter2.changeControlMode(TalonControlMode.Follower);
         shooter2.set(RobotMap.SHOOTERCAN1);
         
-        
 	}
+	
     /**
      * This function is called periodically during operator control
      */
@@ -101,8 +102,8 @@ public class Shooter extends Subsystem {
     }
     
     public void startShooterIndexer() {
-    	shooterIndexerMotor.set(-1.0);
-    	shooterAgitator.set(-1.0);
+    	shooterIndexerMotor.set(-0.2);
+    	shooterAgitator.set(-0.6);
     }
     
     public void stopShooterIndexer() {
