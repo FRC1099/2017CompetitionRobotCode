@@ -1,7 +1,6 @@
 
 package org.usfirst.frc.team1099.robot;
 
-import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.command.Command;
@@ -13,8 +12,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team1099.robot.commands.DoNothing;
 import org.usfirst.frc.team1099.robot.commands.Baseline;
 import org.usfirst.frc.team1099.robot.commands.CenterGearPeg;
-import org.usfirst.frc.team1099.robot.commands.Shooter.StartShooterFast;
-import org.usfirst.frc.team1099.robot.commands.Shooter.StartShooterIdle;
 import org.usfirst.frc.team1099.robot.subsystems.Climber;
 import org.usfirst.frc.team1099.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team1099.robot.subsystems.Shooter;
@@ -137,11 +134,9 @@ public class Robot extends IterativeRobot {
 	
 	public void displayEncoderData() {
 		SmartDashboard.putNumber("Left Encoder Position", Robot.drivetrain.getLeftEncoderPosition());
-		SmartDashboard.putNumber("Right Encoder Position", Robot.drivetrain.getRightEncoderPosition());
-		
-		// SmartDashboard.putNumber("Left Position", Robot.drivetrain.getLeftPosition());
-		// SmartDashboard.putNumber("Right Position", Robot.drivetrain.getRightPosition());
-		
+		SmartDashboard.putNumber("Right Encoder Position", Robot.drivetrain.getRightEncoderPosition());		
 	}
+	
+	
 	
 }

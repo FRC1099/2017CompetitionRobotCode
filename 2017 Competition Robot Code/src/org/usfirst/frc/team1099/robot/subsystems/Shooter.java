@@ -95,14 +95,14 @@ public class Shooter extends Subsystem {
         /* set closed loop gains in slot0 */
         m.setProfile(0);
 
-       m.setF(0.03); // 0.2
-       m.setP(0.01); // 0.2
+       m.setF(0.1); // 0.2 or 0.03
+       m.setP(0.01); // 0.2 or 0.01
        m.setI(0.0001); // 0.001
-       m.setD(0.0);
+       m.setD(0);
     }
     
     public void startShooterIndexer() {
-    	shooterIndexerMotor.set(-0.2);
+    	shooterIndexerMotor.set(-0.15);
     	shooterAgitator.set(-0.6);
     }
     
