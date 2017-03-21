@@ -102,6 +102,7 @@ public class Robot extends IterativeRobot {
 		Scheduler.getInstance().run();
 	}
 
+	
 	@Override
 	public void teleopInit() {
 		// This makes sure that the autonomous stops running when
