@@ -1,6 +1,9 @@
 package org.usfirst.frc.team1099.robot.commands;
 
 import org.usfirst.frc.team1099.robot.commands.Drive.AutoDrive;
+import org.usfirst.frc.team1099.robot.commands.Drive.AutoDriveEncoder;
+import org.usfirst.frc.team1099.robot.commands.Drive.ChangeControlMode;
+import org.usfirst.frc.team1099.robot.commands.Drive.ResetEncoderPosition;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -26,6 +29,14 @@ public class Baseline extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	addSequential(new AutoDrive(-0.5, -0.5), 3.0);
+    	/* addSequential(new ChangeControlMode(ChangeControlMode.SPEED), .5);
+    	
+    	// forward
+    	addSequential(new ResetEncoderPosition(),0.2);
+    	//rpm, rpm, inches
+    	addSequential(new AutoDriveEncoder(125, 125, 84.0), 4);
+    	addSequential(new AutoDriveEncoder(0, 0, 0),0.5); */
+    	
+    	addSequential(new AutoDrive(-0.53, -0.475), 4.0);
     }
 }

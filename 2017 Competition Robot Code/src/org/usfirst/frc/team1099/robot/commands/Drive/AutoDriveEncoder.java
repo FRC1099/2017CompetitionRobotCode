@@ -38,7 +38,8 @@ public AutoDriveEncoder(double lspeed, double rspeed, double distance) {
     	requires(Robot.drivetrain);
 
 		// distance is in inches
-    	int target = (int)( distance * ( 1 / 24.9 ) * ( 24 / 15.0 ) * 4096);
+    	//distance * 1 / wheelCircumference * wheelTeeth * driveTeeth * encoderTicks
+    	int target = (int)( distance * ( 1 / 12.4 ) * ( 1 / 1.0 ) * 4096);
     	init(lspeed, rspeed, target, target);
     }
 
@@ -86,7 +87,7 @@ public AutoDriveEncoder(double lspeed, double rspeed, double distance) {
         int rpos=Robot.drivetrain.getRightEncoderPosition();
         
         // return Math.abs(lpos) > ltarget && Math.abs(rpos) > rtarget;
-        return Math.abs(lpos) > ltarget;
+        return Math.abs(rpos) > rtarget;
     }
 
     // Called once after isFinished returns true

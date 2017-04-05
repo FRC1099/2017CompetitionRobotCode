@@ -1,6 +1,8 @@
 
 package org.usfirst.frc.team1099.robot;
 
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.command.Command;
@@ -12,9 +14,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team1099.robot.commands.DoNothing;
 import org.usfirst.frc.team1099.robot.commands.Baseline;
 import org.usfirst.frc.team1099.robot.commands.CenterGearPeg;
+import org.usfirst.frc.team1099.robot.commands.LeftGearPeg;
+import org.usfirst.frc.team1099.robot.commands.ShooterAuto;
 import org.usfirst.frc.team1099.robot.subsystems.Climber;
 import org.usfirst.frc.team1099.robot.subsystems.Drivetrain;
-import org.usfirst.frc.team1099.robot.subsystems.Shooter;
+import org.usfirst.frc.team1099.robot.subsystems.ShooterSpeedControl;
+import org.usfirst.frc.team1099.robot.subsystems.ShooterVBus;
 import org.usfirst.frc.team1099.robot.subsystems.BallIntake;
 
 /**
@@ -29,7 +34,8 @@ public class Robot extends IterativeRobot {
 	public static final Drivetrain drivetrain = new Drivetrain();
 	public static final BallIntake intake = new BallIntake();
 	public static final Climber climber = new Climber();
-	public static final Shooter shooter = new Shooter();
+	//public static final ShooterSpeedControl shooter = new ShooterSpeedControl();
+	public static final ShooterVBus shooter = new ShooterVBus();
 	public static OI oi;
 
 	Command autonomousCommand;
@@ -44,8 +50,21 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		chooser.addDefault("Do Nothing", new DoNothing());
 		chooser.addObject("Baseline Drive Forward", new Baseline());
-		chooser.addObject("Center Gear Peg Drive Backward", new CenterGearPeg());
+		chooser.addObject("Center Gear Peg Backward", new CenterGearPeg());
+		chooser.addObject("Left Gear Peg Backward", new LeftGearPeg());
+		chooser.addObject("Shoot! (red)", new ShooterAuto(ShooterAuto.RED));
+		chooser.addObject("Shoot! (blue)", new ShooterAuto(ShooterAuto.BLUE));
+		
 		SmartDashboard.putData("Auto mode", chooser);
+		
+		UsbCamera camera0 = CameraServer.getInstance().startAutomaticCapture(0);
+		UsbCamera camera1 = CameraServer.getInstance().startAutomaticCapture(1);
+		
+		camera0.setResolution(320, 240);
+		camera1.setResolution(320, 240);
+		
+		camera0.setFPS(10);
+		camera1.setFPS(10);
 		
 		if(Robot.drivetrain.getShiftStatus() != false) {
 			Robot.drivetrain.shiftLow();

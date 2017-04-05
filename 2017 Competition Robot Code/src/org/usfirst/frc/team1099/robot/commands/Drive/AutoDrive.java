@@ -27,7 +27,7 @@ public class AutoDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drivetrain.autoDrive(leftSpeed, rightSpeed);
+    	Robot.drivetrain.autoDrive(-leftSpeed, -rightSpeed);
     	
     }
 
