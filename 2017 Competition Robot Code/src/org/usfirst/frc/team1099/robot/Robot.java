@@ -66,6 +66,10 @@ public class Robot extends IterativeRobot {
 		camera0.setFPS(10);
 		camera1.setFPS(10);
 		
+		double currentPDP0 = pdp.getCurrent(0);
+		
+		SmartDashboard.putNumber("PDP Channel 0 Current", currentPDP0);
+		
 		if(Robot.drivetrain.getShiftStatus() != false) {
 			Robot.drivetrain.shiftLow();
 		}
