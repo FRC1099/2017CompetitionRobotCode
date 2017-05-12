@@ -1,4 +1,4 @@
-package org.usfirst.frc.team1099.robot.subsystems;
+/* package org.usfirst.frc.team1099.robot.subsystems;
 
 import org.usfirst.frc.team1099.robot.RobotMap;
 import org.usfirst.frc.team1099.robot.commands.Intake.IntakeStop;
@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
-public class BallIntake extends Subsystem {
+/* public class BallIntake extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
@@ -29,5 +29,4 @@ public class BallIntake extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     	setDefaultCommand(new IntakeStop());
     }
-}
-
+} */

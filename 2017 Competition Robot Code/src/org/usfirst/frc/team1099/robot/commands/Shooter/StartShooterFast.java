@@ -27,7 +27,7 @@ public class StartShooterFast extends Command {
     	
     	Robot.shooter.startShooter(-(speed));
     	
-    	if (speed < 1615) speed += 30;
+    	if (speed < 1620) speed += 50;
     }
 
     // Make this return true when this Command no longer needs to run execute()

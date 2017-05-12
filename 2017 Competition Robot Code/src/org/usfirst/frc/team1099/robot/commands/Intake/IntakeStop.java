@@ -1,4 +1,4 @@
-package org.usfirst.frc.team1099.robot.commands.Intake;
+/* package org.usfirst.frc.team1099.robot.commands.Intake;
 
 import org.usfirst.frc.team1099.robot.Robot;
 
@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class IntakeStop extends Command {
+/* public class IntakeStop extends Command {
 
     public IntakeStop() {
         // Use requires() here to declare subsystem dependencies
@@ -37,4 +37,4 @@ public class IntakeStop extends Command {
     // subsystems is scheduled to run
     protected void interrupted() {
     }
-}
+} */

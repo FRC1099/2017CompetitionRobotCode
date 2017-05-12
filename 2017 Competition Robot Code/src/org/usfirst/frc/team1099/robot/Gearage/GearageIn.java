@@ -1,4 +1,4 @@
-/* package org.usfirst.frc.team1099.robot.commands.Intake;
+package org.usfirst.frc.team1099.robot.Gearage;
 
 import org.usfirst.frc.team1099.robot.Robot;
 
@@ -7,12 +7,12 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-/* public class IntakeIn extends Command {
+public class GearageIn extends Command {
 
-    public IntakeIn() {
+    public GearageIn() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.intake);
+    	requires(Robot.gearage);
     }
 
     // Called just before this Command runs the first time
@@ -21,12 +21,12 @@ import edu.wpi.first.wpilibj.command.Command;
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.intake.intakeIn();
+    	Robot.gearage.gearIn();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true
@@ -37,4 +37,4 @@ import edu.wpi.first.wpilibj.command.Command;
     // subsystems is scheduled to run
     protected void interrupted() {
     }
-} */
+}

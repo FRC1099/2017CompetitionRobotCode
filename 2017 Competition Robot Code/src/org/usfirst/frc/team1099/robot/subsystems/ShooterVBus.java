@@ -56,7 +56,7 @@ public class ShooterVBus extends Subsystem {
      */
     public void startShooter(double speedSP) {
     	//Changing speed from RPM to voltage
-    	double vSpeed = -0.50;
+    	double vSpeed = -0.40;
     	
     	if (speedSP >= 0) {
     		vSpeed = 0.0;

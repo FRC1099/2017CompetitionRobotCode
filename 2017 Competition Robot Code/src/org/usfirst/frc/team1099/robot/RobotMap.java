@@ -30,13 +30,15 @@ public class RobotMap {
 	//Component Motors:
 	public static int INTAKEMOTOR = 0;
 	public static int SHOOTERINDEXMOTOR = 1;
-	public static int CLIMBERMOTOR = 2;
+	// public static int CLIMBERMOTOR = 2;
 	public static int SHOOTERAGITATOR = 3;
 	;
 	
 	//Pneumatics:
 	public static int SHIFTHIGH = 0;
 	public static int SHIFTLOW = 1;
+	public static int GEAROUT = 2;
+	public static int GEARIN = 3;
 	
 	//Joysticks & Gamepads:
 	public static int LSTICK = 0;
@@ -49,15 +51,17 @@ public class RobotMap {
 	public static int SLOWDRIVEBUTTON = 3;
 	
 	//Gamepad Buttons:
-	public static int INTAKEIN = 6;
+	public static int GEARBUTTONIN = 5;
+	public static int GEARBUTTONOUT = 6;
 	public static int SHOOTERFAST = 1;
-	public static int SHOOTERIDLE = 2;
-	public static int SHOOTERSTOP = 4;
+	//public static int SHOOTERIDLE = 2;
+	public static int SHOOTERSTOP = 2;
 	public static int INDEXERBUTTON = 3;
-	public static int CLIMBERDOWNVERIFY = 8;
+	public static int HOLDCLIMB = 4;
+	// public static int CLIMBERDOWNVERIFY = 8;
 
 	
 	//Gamepad Axes:
-	public static int CLIMBERAXIS = 5;
+	// public static int CLIMBERAXIS = 5;
 	
 }

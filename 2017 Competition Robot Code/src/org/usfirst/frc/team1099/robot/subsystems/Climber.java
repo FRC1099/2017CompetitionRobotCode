@@ -1,4 +1,4 @@
-package org.usfirst.frc.team1099.robot.subsystems;
+/* package org.usfirst.frc.team1099.robot.subsystems;
 
 import org.usfirst.frc.team1099.robot.OI;
 import org.usfirst.frc.team1099.robot.Robot;
@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
-public class Climber extends Subsystem {
+/* public class Climber extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
@@ -34,5 +34,4 @@ public class Climber extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     	setDefaultCommand(new StartClimbMotor());
     }
-}
-
+} */

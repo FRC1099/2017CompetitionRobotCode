@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class StartClimbMotor extends Command {
+/* public class StartClimbMotor extends Command {
 
     public StartClimbMotor() {
         // Use requires() here to declare subsystem dependencies
@@ -37,4 +37,4 @@ public class StartClimbMotor extends Command {
     // subsystems is scheduled to run
     protected void interrupted() {
     }
-}
+} */

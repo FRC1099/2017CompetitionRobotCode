@@ -43,7 +43,7 @@ public class ShooterAuto extends CommandGroup {
     	if( alliance == RED) {
     		addSequential(new AutoDrive(-.26, -.25), 2.0); // move away from wall (back up)
     	} else {
-    		addSequential(new AutoDrive(-.26, -.25), 1.4); // move away from wall (back up)
+    		addSequential(new AutoDrive(-.26, -.25), 0.6); // move away from wall (back up)
     	}
     	
     	if( alliance == RED) {

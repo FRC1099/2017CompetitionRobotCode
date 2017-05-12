@@ -1,18 +1,19 @@
-/* package org.usfirst.frc.team1099.robot.commands.Intake;
+package org.usfirst.frc.team1099.robot.commands.Drive;
 
 import org.usfirst.frc.team1099.robot.Robot;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-/* public class IntakeIn extends Command {
+public class HoldClimb extends Command {
 
-    public IntakeIn() {
+    public HoldClimb() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.intake);
+    	requires(Robot.drivetrain);
     }
 
     // Called just before this Command runs the first time
@@ -21,12 +22,19 @@ import edu.wpi.first.wpilibj.command.Command;
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.intake.intakeIn();
+    	Robot.drivetrain.holdClimb();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+    	if(Timer.getMatchTime() < 30) {
+    		return false;
+		}
+		else {
+			return true;
+		}
+    	
+    	
     }
 
     // Called once after isFinished returns true
@@ -37,4 +45,4 @@ import edu.wpi.first.wpilibj.command.Command;
     // subsystems is scheduled to run
     protected void interrupted() {
     }
-} */
+}

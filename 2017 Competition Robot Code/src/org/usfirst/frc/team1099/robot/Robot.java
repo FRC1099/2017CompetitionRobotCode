@@ -16,11 +16,10 @@ import org.usfirst.frc.team1099.robot.commands.Baseline;
 import org.usfirst.frc.team1099.robot.commands.CenterGearPeg;
 import org.usfirst.frc.team1099.robot.commands.LeftGearPeg;
 import org.usfirst.frc.team1099.robot.commands.ShooterAuto;
-import org.usfirst.frc.team1099.robot.subsystems.Climber;
 import org.usfirst.frc.team1099.robot.subsystems.Drivetrain;
+import org.usfirst.frc.team1099.robot.subsystems.Gearage;
 import org.usfirst.frc.team1099.robot.subsystems.ShooterSpeedControl;
 import org.usfirst.frc.team1099.robot.subsystems.ShooterVBus;
-import org.usfirst.frc.team1099.robot.subsystems.BallIntake;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -32,10 +31,11 @@ import org.usfirst.frc.team1099.robot.subsystems.BallIntake;
 public class Robot extends IterativeRobot {
 
 	public static final Drivetrain drivetrain = new Drivetrain();
-	public static final BallIntake intake = new BallIntake();
-	public static final Climber climber = new Climber();
-	//public static final ShooterSpeedControl shooter = new ShooterSpeedControl();
-	public static final ShooterVBus shooter = new ShooterVBus();
+	public static final Gearage gearage = new Gearage();
+	//public static final BallIntake intake = new BallIntake();
+	//public static final Climber climber = new Climber();
+	public static final ShooterSpeedControl shooter = new ShooterSpeedControl();
+	//public static final ShooterVBus shooter = new ShooterVBus();
 	public static OI oi;
 
 	Command autonomousCommand;

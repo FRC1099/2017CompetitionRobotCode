@@ -3,9 +3,12 @@ package org.usfirst.frc.team1099.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+
+import org.usfirst.frc.team1099.robot.Gearage.GearageIn;
+import org.usfirst.frc.team1099.robot.Gearage.GearageOut;
+import org.usfirst.frc.team1099.robot.commands.Drive.HoldClimb;
 import org.usfirst.frc.team1099.robot.commands.Drive.ShiftHigh;
 import org.usfirst.frc.team1099.robot.commands.Drive.ShiftLow;
-import org.usfirst.frc.team1099.robot.commands.Intake.IntakeIn;
 import org.usfirst.frc.team1099.robot.commands.Shooter.StartShooterFast;
 import org.usfirst.frc.team1099.robot.commands.Shooter.StartShooterIdle;
 import org.usfirst.frc.team1099.robot.commands.Shooter.StartShooterIndexer;
@@ -54,8 +57,14 @@ public class OI {
 		JoystickButton shiftLow = new JoystickButton(lstick, RobotMap.SHIFTLOWBUTTON);
 		shiftLow.whenPressed(new ShiftLow());
 		
-		JoystickButton intakeIn = new JoystickButton(gamepad, RobotMap.INTAKEIN);
-		intakeIn.whileHeld(new IntakeIn());
+		JoystickButton gearIn = new JoystickButton(gamepad, RobotMap.GEARBUTTONIN);
+		gearIn.whenPressed(new GearageIn());
+		
+		JoystickButton gearOut = new JoystickButton(gamepad, RobotMap.GEARBUTTONOUT);
+		gearOut.whenPressed(new GearageOut());
+		
+		// JoystickButton intakeIn = new JoystickButton(gamepad, RobotMap.INTAKEIN);
+		// intakeIn.whileHeld(new IntakeIn());
 		
 		JoystickButton indexerButton = new JoystickButton(gamepad, RobotMap.INDEXERBUTTON);
 		indexerButton.whileHeld(new StartShooterIndexer());
@@ -63,14 +72,17 @@ public class OI {
 		JoystickButton shooterFast = new JoystickButton(gamepad, RobotMap.SHOOTERFAST);
 		shooterFast.whenPressed(new StartShooterFast());
 		
-		JoystickButton shooterIdle = new JoystickButton(gamepad, RobotMap.SHOOTERIDLE);
-		shooterIdle.whenPressed(new StartShooterIdle());
+		// JoystickButton shooterIdle = new JoystickButton(gamepad, RobotMap.SHOOTERIDLE);
+		// shooterIdle.whenPressed(new StartShooterIdle());
 		
 		JoystickButton stopShooter = new JoystickButton(gamepad, RobotMap.SHOOTERSTOP);
 		stopShooter.whenPressed(new StopShooter());
+		
+		JoystickButton holdClimb = new JoystickButton(gamepad, RobotMap.HOLDCLIMB);
+		holdClimb.whenPressed(new HoldClimb());
 	}
 	
-	public double getRightAxis() {
+	/* public double getRightAxis() {
 		return gamepad.getRawAxis(RobotMap.CLIMBERAXIS);
-	}
+	} */
 }

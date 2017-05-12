@@ -100,6 +100,8 @@ public class Drivetrain extends Subsystem {
 		double pdp14Current = pdp.getCurrent(14);
 		double pdp13Current = pdp.getCurrent(13);
 		
+		double ldriveVolts = ldrive.getOutputVoltage();
+		
 		double totalCurrent = pdp0Current + pdp1Current + pdp2Current + pdp15Current + pdp14Current + pdp13Current;
 		
 		double newTime = Timer.getFPGATimestamp();
@@ -131,6 +133,7 @@ public class Drivetrain extends Subsystem {
 		SmartDashboard.putNumber("Total Current", totalCurrent);
 		SmartDashboard.putNumber("Drive Total AMP Hours", totalAmpHours);
 		SmartDashboard.putBoolean("Shift Status", shiftStatus);
+		SmartDashboard.putNumber("Left Voltage", ldriveVolts);
 		
 		ldrive.getPosition();
 	}
@@ -180,6 +183,15 @@ public class Drivetrain extends Subsystem {
 		
 		ldrive.setPosition(0);
 		rdrive.setPosition(0);
+	}
+	
+	public void holdClimb() {
+		if(Timer.getMatchTime() < 30) {
+			ldrive.set(.3);
+		}
+		else {
+			drive();
+		}
 	}
 
     public void initDefaultCommand() {
